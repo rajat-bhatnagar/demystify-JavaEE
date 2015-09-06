@@ -26,10 +26,9 @@ public class BMIServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		OutputStream out = response.getOutputStream();
+		//Invoke helper method
 		this.writeForm(out,"","","","");
-		
 	}
 
 	//Helper method
@@ -53,7 +52,6 @@ public class BMIServlet extends HttpServlet {
 				out.write("</form>".getBytes());
 				out.write("</body>".getBytes());
 				out.write("</html>".getBytes());
-		
 	}
 	
 	
@@ -62,10 +60,8 @@ public class BMIServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		OutputStream out = response.getOutputStream();
-		//Calculate the BMI here
 		Float heightVal = null ;
 		Float weightVal = null;
-		//bmi formula makes use of height and weight
 	    String height = request.getParameter("height");
 	    String weight = request.getParameter("weight");
 	    String heightError = "";
@@ -98,18 +94,14 @@ public class BMIServlet extends HttpServlet {
 				this.writeForm(out, height, weight, heightError, weightError);
 				return;
 			}
-				//Calculate the bmiResult by bmi formula
+			//Calculate the bmiResult by bmi formula
+			//bmi formula makes use of height and weight
 				Float bmiResult = (weightVal/(heightVal * heightVal))*703;
 				String result = "<html><head><title>Your BMI Index</title>"
 						+ "</head><body><h1>Your bmi is "+bmiResult+"</h1></body></html>";
 				//Convert String to bytes
 				out.write(result.getBytes());
-				//doGet(request, response);
 				return;
-			
-			
-		} 
-		
-		
+		} 	
 	}
 
