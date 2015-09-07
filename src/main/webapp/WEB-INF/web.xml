@@ -3,7 +3,10 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>demystify-JavaEE</display-name>
+  <listener>
+  	<listener-class>com.thoughtworks.javaweb.servlets.ServletContextListenerDemo</listener-class>
+  </listener>
   <servlet>
   	<servlet-name>SampleServlet1</servlet-name>
   	<display-name>SampleServlet1</display-name>
